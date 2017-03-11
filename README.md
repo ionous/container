@@ -38,9 +38,9 @@ This second example creates custom list elements. It uses the package's "Hook" t
 ```go
 func ExampleCustomElement() {
 	// Create a custom list element using dlist.Hook.
-  // Hook provides built-in support for the intrusive list:
-  // you simply include it as an anonymous member of a struct. 
-  // ( Alternatively, you can implement the dlist.Intrusive interface for more control. )
+ 	// Hook provides built-in support for the intrusive list:
+	// you simply include it as an anonymous member of a struct. 
+ 	// ( Alternatively, you can implement the dlist.Intrusive interface for more control. )
 	type MyElement struct {
 		dlist.Hook     
 		MyData     int // some example data.
