@@ -3,7 +3,7 @@
 // license that can be found in the LICENSE file.
 // Copyright 2017 - ionous. Modified to create intrusive linked lists.
 
-package dlist
+package inlist
 
 import "testing"
 

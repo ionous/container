@@ -1,4 +1,4 @@
-inlist provides intrusive linked lists for go. inlist/dlist modifies golang's container/list to provide an intrusive version of that package.
+container provides intrusive linked lists for go. container/inlist modifies golang's container/list to provide an intrusive version of that package.
 
 
 # Examples 
@@ -9,20 +9,20 @@ It creates a linked list of numbers, and prints them.
 ```go
 import (
 	"fmt"
-	"github.com/ionous/inlist/dlist"
+	"github.com/ionous/container/inlist"
 )
 
 func Example() {
 	// Create a new list and put some numbers in it.
-	l := dlist.New()
-	e4 := l.PushBack(dlist.NewElement(4))
-	e1 := l.PushFront(dlist.NewElement(1))
-	l.InsertBefore(dlist.NewElement(3), e4)
-	l.InsertAfter(dlist.NewElement(2), e1)
+	l := inlist.New()
+	e4 := l.PushBack(inlist.NewElement(4))
+	e1 := l.PushFront(inlist.NewElement(1))
+	l.InsertBefore(inlist.NewElement(3), e4)
+	l.InsertAfter(inlist.NewElement(2), e1)
 
 	// Iterate through list and print its contents.
-	for e := l.Front(); e != nil; e = dlist.Next(e) {
-		fmt.Println(dlist.Value(e))
+	for e := l.Front(); e != nil; e = inlist.Next(e) {
+		fmt.Println(inlist.Value(e))
 	}
   
 	// Output:
@@ -37,21 +37,21 @@ This second example creates custom list elements. It uses the package's "Hook" t
 
 ```go
 func ExampleCustomElement() {
-	// Create a custom list element using dlist.Hook.
+	// Create a custom list element using inlist.Hook.
  	// Hook provides built-in support for the intrusive list:
 	// you simply include it as an anonymous member of a struct. 
- 	// ( Alternatively, you can implement the dlist.Intrusive interface for more control. )
+ 	// ( Alternatively, you can implement the inlist.Intrusive interface for more control. )
 	type MyElement struct {
-		dlist.Hook     
+		inlist.Hook     
 		MyData     int // some example data.
 	}
   
-	l := dlist.New()
+	l := inlist.New()
 	l.PushBack(&MyElement{MyData: 17})
 	l.PushFront(&MyElement{MyData: 20})
   
 	// Iterate through list and print its contents.
-	for e := l.Front(); e != nil; e = dlist.Next(e) {
+	for e := l.Front(); e != nil; e = inlist.Next(e) {
 		fmt.Println(e.(*MyElement).MyData)
 	}
   

@@ -3,16 +3,16 @@
 // license that can be found in the LICENSE file.
 // Copyright 2017 - ionous. Modified to create intrusive linked lists.
 
-// Package dlist implements an intrusive doubly linked list.
+// Package inlist implements an intrusive doubly linked list.
 //
 // To iterate over a list (where l is a *List):
-//	for e := l.Front(); e != nil; e = dlist.Next(e) {
+//	for e := l.Front(); e != nil; e = inlist.Next(e) {
 //		// do something with e
 //	}
 //
-package dlist
+package inlist
 
-// Element mimics golang's container/list/Element; this implements the ilist/dlist/Intrusive interface to allow the storage of generic values in dlist.List.
+// Element mimics golang's container/list/Element; this implements the ilist/inlist/Intrusive interface to allow the storage of generic values in inlist.List.
 // see also: NewElement(), and Value()
 type Element struct {
 	Hook
@@ -35,10 +35,10 @@ func Value(i Intrusive) interface{} {
 //
 // For example:
 // type MyElement struct {
-// 	dlist.Hook
+// 	inlist.Hook
 // 	MyData int // or whatever data you need.
 // }
-// l:= dlist.New()
+// l:= inlist.New()
 // l.PushBack(&MyElement{MyData:23})
 //
 type Hook struct {
@@ -67,7 +67,7 @@ func (s *Hook) SetElements(l *List, p Intrusive, n Intrusive) {
 }
 
 // Intrusive provides an interface for intrusive linked list manipulation.
-// Use dlist.Next(), dlist.Prev() for list traversal.
+// Use inlist.Next(), inlist.Prev() for list traversal.
 type Intrusive interface {
 	// List, return the list given via SetElements.
 	List() *List
