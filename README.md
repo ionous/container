@@ -3,7 +3,7 @@ inlist provides intrusive linked lists for go. inlist/dlist modifies golang's co
 
 # Examples 
 
-This first example mimics the container/list example as closely as possible.
+This first example mimics the container/list [example](https://golang.org/pkg/container/list/#example_) as closely as possible.
 It creates a linked list of numbers, and prints them.
 
 ```go
