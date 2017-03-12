@@ -29,7 +29,7 @@ func Example() {
 	// 4
 }
 
-func ExampleCustomElement() {
+func ExampleHook() {
 	// Create a custom list element
 	type MyElement struct {
 		inlist.Hook     // anonymous support for the intrusive list; alternatively, users can implement the inlist.Intrusive interface for more control.
